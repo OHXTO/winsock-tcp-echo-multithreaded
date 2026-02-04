@@ -1,12 +1,13 @@
 # Winsock TCP Echo (Multithreaded)
 A minimal TCP client/server demo in C on Windows using Winsock.
 
-TCP_server listens on port `8080` and echoes back whatever each client sends. Supported multi-thread connection.
+The server listens on port `8080` and echoes back whatever each client sends.
+Supported multiple client connections.
 
 ## Features
-- TCP server: `bind` / `listen` / `accept` / `recv` / `send`
+- server: `bind` / `listen` / `accept` / `recv` / `send`
 - Multi-client support via `CreateThread` (one thread per client connection)
-- TCP client that connects to `127.0.0.1:8080` and sends user input.
+- client that connects to `127.0.0.1:8080` and sends/echoback user input.
 
 ## Requirements
 - Windows
@@ -16,7 +17,7 @@ TCP_server listens on port `8080` and echoes back whatever each client sends. Su
 ## Build
 ```bash
 gcc server.c -o server.exe -lws2_32
-gcc TCP_client.c -o client.exe -lws2_32
+gcc client.c -o client.exe -lws2_32
 ```
 > **NOTE:** With MSVC (Visual Studio), you can auto-link Winsock using
 > ```
@@ -29,6 +30,8 @@ gcc TCP_client.c -o client.exe -lws2_32
 ```bash
 ./server.exe
 ```
+> **Note (Windows Firewall):** When you run the server for the first time, Windows may prompt a firewall/security dialog.
+> For local testing, allowing **Private networks**. For server reachable on public Wi-Fi, alowwing **Public networks**.
 
 2. In another terminal, start one or more clients:
 ```bash
