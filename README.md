@@ -4,6 +4,8 @@ A minimal TCP client/server demo in C on Windows using Winsock.
 The server listens on port `8080` and echoes back whatever each client sends.
 Supported multiple client connections.
 
+<img src="assets/demo.png" alt="demo" width="420">
+
 ## Features
 - server: `bind` / `listen` / `accept` / `recv` / `send`
 - Multi-client support via `CreateThread` (one thread per client connection)
@@ -25,13 +27,13 @@ gcc client.c -o client.exe -lws2_32
 > ```
 > With MinGW-w64 `gcc`(commonly used in VS Code), link it explicitly using `-lws2_32`.
 
-### Run
+## Run
 1. Start the server:
 ```bash
 ./server.exe
 ```
 > **Note (Windows Firewall):** When you run the server for the first time, Windows may prompt a firewall/security dialog.
-> For local testing, allowing **Private networks**. For server reachable on public Wi-Fi, alowwing **Public networks**.
+> For local testing, allowing **Private networks**. For server reachable on public Wi-Fi, allowing **Public networks**.
 
 2. In another terminal, start one or more clients:
 ```bash
